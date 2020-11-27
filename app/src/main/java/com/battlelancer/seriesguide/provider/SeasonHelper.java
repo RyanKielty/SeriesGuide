@@ -20,7 +20,7 @@ public interface SeasonHelper {
     SgSeason getSeason();
 
     @Nullable
-    @Query("SELECT combinednr, series_id FROM seasons WHERE _id=:seasonTvdbId")
+    @Query("SELECT season_number, series_id FROM seasons WHERE _id=:seasonTvdbId")
     SgSeasonMinimal getSeasonMinimal(int seasonTvdbId);
 
 }

@@ -28,11 +28,11 @@ public interface ShowHelper {
      * Might return {@code null} if there is no show with that TVDb id.
      */
     @Nullable
-    @Query("SELECT seriestitle, series_poster_small FROM series WHERE _id = :tvdbId LIMIT 1")
+    @Query("SELECT series_title, series_poster_small FROM series WHERE _id = :tvdbId LIMIT 1")
     SgShowMinimal getShowMinimal(long tvdbId);
 
     @Nullable
-    @Query("SELECT seriestitle FROM series WHERE _id = :tvdbId")
+    @Query("SELECT series_title FROM series WHERE _id = :tvdbId")
     String getShowTitle(long tvdbId);
 
     @RawQuery(observedEntities = SgShow.class)
