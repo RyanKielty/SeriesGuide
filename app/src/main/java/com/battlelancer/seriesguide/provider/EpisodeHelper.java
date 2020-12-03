@@ -1,7 +1,5 @@
 package com.battlelancer.seriesguide.provider;
 
-import static com.battlelancer.seriesguide.provider.SeriesGuideDatabase.Tables.EPISODES;
-
 import androidx.annotation.Nullable;
 import androidx.paging.DataSource;
 import androidx.room.Dao;
@@ -25,13 +23,13 @@ public interface EpisodeHelper {
     /**
      * For testing: Get the first episode from the table.
      */
-    @Query("SELECT * FROM " + EPISODES + " LIMIT 1")
+    @Query("SELECT * FROM episodes LIMIT 1")
     SgEpisode getEpisode();
 
     /**
      * For testing: Get single episode.
      */
-    @Query("SELECT * FROM " + EPISODES + " WHERE _id=:episodeTvdbId")
+    @Query("SELECT * FROM episodes WHERE episode_tvdb_id=:episodeTvdbId")
     SgEpisode getEpisode(int episodeTvdbId);
 
     /**
