@@ -36,7 +36,7 @@ public interface ShowHelper {
     String getShowTitle(long tvdbId);
 
     @Query("SELECT _id FROM series WHERE series_tvdb_id=:tvdbId")
-    int getShowId(long tvdbId);
+    long getShowId(long tvdbId);
 
     @RawQuery(observedEntities = SgShow.class)
     LiveData<List<SgShow>> queryShows(SupportSQLiteQuery query);

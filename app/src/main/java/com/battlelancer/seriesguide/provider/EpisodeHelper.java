@@ -10,6 +10,7 @@ import com.battlelancer.seriesguide.model.EpisodeWithShow;
 import com.battlelancer.seriesguide.model.SgEpisode;
 import com.battlelancer.seriesguide.model.SgEpisodeForTraktSync;
 import com.battlelancer.seriesguide.model.SgEpisodeSeasonAndShow;
+import com.battlelancer.seriesguide.model.SgEpisodeUpdateInfo;
 import com.battlelancer.seriesguide.model.SgShow;
 import com.battlelancer.seriesguide.provider.SeriesGuideContract.Episodes;
 import java.util.List;
@@ -31,6 +32,9 @@ public interface EpisodeHelper {
      */
     @Query("SELECT * FROM episodes WHERE episode_tvdb_id=:episodeTvdbId")
     SgEpisode getEpisode(int episodeTvdbId);
+
+    @Query("SELECT _id, episode_tvdb_id, episode_lastupdate FROM episodes WHERE series_id=:showId")
+    List<SgEpisodeUpdateInfo> getLastUpdatedInfoForShow(long showId);
 
     /**
      * Gets episodes of season ordered by episode number.
